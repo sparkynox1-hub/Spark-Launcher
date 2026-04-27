@@ -1,0 +1,30 @@
+# Android / Gradle
+*.iml
+.gradle/
+/local.properties
+/.idea/
+.DS_Store
+/build/
+/captures/
+.externalNativeBuild/
+.cxx/
+
+# App build outputs
+app/build/
+app/keystore.jks
+
+# Kotlin
+*.class
+
+# Secrets (never commit these)
+*.jks
+*.p12
+*.keystore
+secrets.properties
+
+# Crash logs
+crash_logs/
+
+# macOS
+.DS_Store
+Thumbs.db
