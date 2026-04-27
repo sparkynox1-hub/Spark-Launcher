@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Spark Launcher</string>
+    <string name="app_author">SparkyNox</string>
+    <string name="app_tagline">Play. Mod. Spark.</string>
+
+    <!-- Auth -->
+    <string name="login_cracked">Offline / Cracked</string>
+    <string name="login_microsoft">Microsoft Account</string>
+    <string name="username_hint">Enter username (3-16 chars)</string>
+    <string name="btn_login">Login</string>
+    <string name="btn_microsoft_login">Login with Microsoft</string>
+
+    <!-- Home -->
+    <string name="no_instances">No instances yet.\nTap + to create one!</string>
+    <string name="btn_play">▶ PLAY</string>
+    <string name="btn_new_instance">+ New Instance</string>
+
+    <!-- Mod Store -->
+    <string name="mod_store_title">Mod Store</string>
+    <string name="search_hint">Search mods, shaders, packs…</string>
+    <string name="btn_download">Download</string>
+    <string name="select_instance">Select Instance</string>
+    <string name="source_all">All</string>
+    <string name="source_modrinth">Modrinth</string>
+    <string name="source_curseforge">CurseForge</string>
+
+    <!-- Settings -->
+    <string name="settings_title">Settings</string>
+    <string name="settings_java">Java &amp; JVM</string>
+    <string name="settings_renderer">Renderer</string>
+    <string name="settings_controls">Controls</string>
+    <string name="settings_theme">Appearance &amp; Theme</string>
+    <string name="settings_account">Account</string>
+    <string name="settings_performance">Performance</string>
+    <string name="settings_download">Download</string>
+    <string name="settings_about">About</string>
+
+    <!-- Java settings -->
+    <string name="allocated_ram">Allocated RAM</string>
+    <string name="java_version">Java Version</string>
+    <string name="gc_type">Garbage Collector</string>
+    <string name="jvm_arguments">JVM Arguments</string>
+    <string name="btn_save">Save</string>
+    <string name="btn_reset">Reset to Default</string>
+
+    <!-- Renderer -->
+    <string name="renderer_title">Renderer Backend</string>
+    <string name="renderer_opengles2">OpenGL ES 2.0 (Compatible)</string>
+    <string name="renderer_opengles3">OpenGL ES 3.0 (Recommended)</string>
+    <string name="renderer_vulkan_zink">Vulkan via Zink (Experimental)</string>
+    <string name="renderer_virgl">VirGL (VirtualGL)</string>
+
+    <!-- About -->
+    <string name="about_title">About Spark Launcher</string>
+    <string name="about_version">Version 1.0.0</string>
+    <string name="about_author">Made with ❤️ by SparkyNox</string>
+    <string name="about_based_on">Based on PojavLauncher &amp; Mojo Launcher</string>
+    <string name="about_yori_ecosystem">Part of the Yori Ecosystem</string>
+</resources>

@@ -1,1 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#00000000</color>
 
+    <!-- Dark base colors -->
+    <color name="bg_dark">#0D0D0F</color>
+    <color name="surface_dark">#16161A</color>
+    <color name="surface_card">#1E1E24</color>
+    <color name="text_primary">#F0F0F5</color>
+    <color name="text_secondary">#9090A0</color>
+    <color name="divider">#2A2A35</color>
+
+    <!-- Anime theme accents -->
+    <color name="accent_sakura">#FF82B3</color>         <!-- Sakura Night: soft pink -->
+    <color name="accent_cyber">#00FFD1</color>          <!-- Cyber Waifu: neon teal -->
+    <color name="accent_teal">#39C5BB</color>           <!-- Miku Teal: vocaloid teal -->
+    <color name="accent_crimson">#E8314A</color>        <!-- Demon Slayer: crimson red -->
+    <color name="accent_pastel">#B8A9E8</color>         <!-- Pastel Idol: lavender -->
+
+    <!-- Standard theme accents -->
+    <color name="accent_spark_orange">#FF6B2B</color>   <!-- Dark Spark: spark orange -->
+    <color name="accent_grass_green">#57A718</color>    <!-- Minecraft: grass green -->
+    <color name="accent_lava">#FF4500</color>           <!-- Nether: lava orange-red -->
+    <color name="accent_ender">#9B59B6</color>          <!-- End: ender purple -->
+    <color name="accent_ocean_blue">#1A7FBF</color>     <!-- Ocean: deep sea blue -->
+
+    <!-- UI element colors -->
+    <color name="btn_primary">#FF6B2B</color>
+    <color name="btn_secondary">#2A2A35</color>
+    <color name="error_red">#FF4757</color>
+    <color name="success_green">#2ED573</color>
+    <color name="warning_yellow">#FFA502</color>
+
+    <!-- Bottom nav -->
+    <color name="nav_active">#FF6B2B</color>
+    <color name="nav_inactive">#505060</color>
+
+    <!-- Shimmer -->
+    <color name="shimmer_base">#1E1E24</color>
+    <color name="shimmer_highlight">#2A2A35</color>
+</resources>

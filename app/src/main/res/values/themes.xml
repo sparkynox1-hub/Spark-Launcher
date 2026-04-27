@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Base App Theme -->
+    <style name="Theme.SparkLauncher" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/accent_spark_orange</item>
+        <item name="colorPrimaryVariant">@color/btn_secondary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/accent_spark_orange</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorSurface">@color/surface_dark</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorBackground">@color/bg_dark</item>
+        <item name="colorOnBackground">@color/text_primary</item>
+        <item name="colorError">@color/error_red</item>
+        <item name="android:statusBarColor">@color/transparent</item>
+        <item name="android:navigationBarColor">@color/bg_dark</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:fontFamily">@font/nunito</item>
+    </style>
+
+    <!-- Splash -->
+    <style name="Theme.SparkLauncher.Splash" parent="Theme.SparkLauncher">
+        <item name="android:windowBackground">@color/bg_dark</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <!-- Custom Button Styles -->
+    <style name="Widget.Spark.Button.Primary" parent="Widget.Material3.Button">
+        <item name="android:backgroundTint">@color/btn_primary</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:fontFamily">@font/nunito_bold</item>
+    </style>
+
+    <style name="Widget.Spark.Button.Secondary" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="strokeColor">@color/divider</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="Widget.Spark.Card" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardBackgroundColor">@color/surface_card</item>
+        <item name="cardCornerRadius">16dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeColor">@color/divider</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+
+    <!-- Bottom Sheet style -->
+    <style name="Widget.Spark.BottomSheet" parent="Widget.Material3.BottomSheet">
+        <item name="backgroundTint">@color/surface_card</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearance.Spark.BottomSheet</item>
+    </style>
+
+    <style name="ShapeAppearance.Spark.BottomSheet" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">20dp</item>
+        <item name="cornerSizeTopRight">20dp</item>
+    </style>
+
+    <!-- Tab layout style -->
+    <style name="Widget.Spark.TabLayout" parent="Widget.Material3.TabLayout">
+        <item name="tabIndicatorColor">@color/accent_spark_orange</item>
+        <item name="tabSelectedTextColor">@color/white</item>
+        <item name="tabTextColor">@color/text_secondary</item>
+        <item name="tabBackground">@color/transparent</item>
+        <item name="tabIndicatorHeight">3dp</item>
+    </style>
+
+    <!-- SearchView -->
+    <style name="Widget.Spark.SearchView" parent="Widget.AppCompat.SearchView">
+        <item name="android:background">@drawable/bg_search_view</item>
+    </style>
+
+    <!-- Chip style -->
+    <style name="Widget.Spark.Chip" parent="Widget.Material3.Chip.Filter">
+        <item name="android:textColor">@color/text_primary</item>
+        <item name="chipBackgroundColor">@color/surface_card</item>
+        <item name="chipStrokeColor">@color/divider</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="checkedChipBackgroundColor">@color/btn_primary</item>
+    </style>
+
+    <!-- Slider style -->
+    <style name="Widget.Spark.Slider" parent="Widget.Material3.Slider">
+        <item name="thumbColor">@color/accent_spark_orange</item>
+        <item name="trackColorActive">@color/accent_spark_orange</item>
+        <item name="trackColorInactive">@color/divider</item>
+    </style>
+</resources>
