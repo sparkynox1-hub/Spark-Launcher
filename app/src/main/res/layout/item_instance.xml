@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    style="@style/Widget.Spark.Card">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="14dp"
+        android:gravity="center_vertical">
+
+        <!-- Instance icon -->
+        <ImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_grass_block"
+            android:contentDescription="Instance icon" />
+
+        <!-- Info -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="12dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_instance_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_primary"
+                android:textSize="15sp"
+                android:fontFamily="@font/nunito_bold"
+                tools:text="Survival World" />
+
+            <TextView
+                android:id="@+id/tv_version"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_secondary"
+                android:textSize="12sp"
+                tools:text="1.21.4 • Fabric 0.15.11" />
+
+            <TextView
+                android:id="@+id/tv_last_played"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_secondary"
+                android:textSize="11sp"
+                tools:text="Last played: 2 hours ago" />
+
+        </LinearLayout>
+
+        <!-- More options menu -->
+        <ImageButton
+            android:id="@+id/btn_more"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_more_vert"
+            android:tint="@color/text_secondary"
+            android:contentDescription="Options" />
+
+    </LinearLayout>
+
+    <!-- Selected indicator -->
+    <View
+        android:id="@+id/view_selected"
+        android:layout_width="4dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/accent_spark_orange"
+        android:visibility="gone" />
+
+</androidx.cardview.widget.CardView>

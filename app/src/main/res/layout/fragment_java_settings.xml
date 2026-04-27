@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- RAM Allocation -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            style="@style/Widget.Spark.Card">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="Allocated RAM"
+                        android:textColor="@color/text_primary"
+                        android:textSize="15sp"
+                        android:fontFamily="@font/nunito_bold" />
+
+                    <TextView
+                        android:id="@+id/tv_ram_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="1.0 GB"
+                        android:textColor="@color/accent_spark_orange"
+                        android:textSize="15sp"
+                        android:fontFamily="@font/nunito_bold" />
+                </LinearLayout>
+
+                <com.google.android.material.slider.Slider
+                    android:id="@+id/slider_ram"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.Spark.Slider" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="512 MB – 8 GB. Recommended: 2–4 GB for modded."
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Java Version -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            style="@style/Widget.Spark.Card">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Java Version"
+                    android:textColor="@color/text_primary"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/nunito_bold"
+                    android:layout_marginBottom="8dp" />
+
+                <Spinner
+                    android:id="@+id/spinner_java_version"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/bg_spinner" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Java 17 is required for Minecraft 1.17+. Java 21 for 1.20.5+."
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp"
+                    android:layout_marginTop="6dp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- GC Type -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            style="@style/Widget.Spark.Card">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Garbage Collector"
+                    android:textColor="@color/text_primary"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/nunito_bold"
+                    android:layout_marginBottom="8dp" />
+
+                <Spinner
+                    android:id="@+id/spinner_gc_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="@drawable/bg_spinner" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="G1GC is recommended for most devices. ZGC reduces stutters on high RAM."
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp"
+                    android:layout_marginTop="6dp" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Custom JVM Arguments -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            style="@style/Widget.Spark.Card">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="JVM Arguments"
+                    android:textColor="@color/text_primary"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/nunito_bold"
+                    android:layout_marginBottom="8dp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/Widget.Material3.TextInputLayout.OutlinedBox">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/et_java_args"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minLines="3"
+                        android:gravity="top"
+                        android:inputType="textMultiLine"
+                        android:fontFamily="monospace"
+                        android:textColor="@color/text_primary"
+                        android:textSize="12sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp">
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_reset_args"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="Reset"
+                        android:layout_marginEnd="8dp"
+                        style="@style/Widget.Spark.Button.Secondary" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/btn_save_args"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="Save"
+                        style="@style/Widget.Spark.Button.Primary" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

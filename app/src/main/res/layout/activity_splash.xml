@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Animated gradient background (fallback before theme loads) -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_splash_gradient" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <!-- App logo / icon -->
+        <ImageView
+            android:id="@+id/logo_image"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@mipmap/ic_launcher"
+            android:contentDescription="Spark Launcher Logo" />
+
+        <!-- App name -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Spark Launcher"
+            android:textColor="@color/white"
+            android:textSize="32sp"
+            android:fontFamily="@font/nunito_bold"
+            android:letterSpacing="0.04" />
+
+        <!-- Tagline -->
+        <TextView
+            android:id="@+id/tagline_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Play. Mod. Spark."
+            android:textColor="#99FFFFFF"
+            android:textSize="15sp"
+            android:fontFamily="@font/nunito" />
+
+    </LinearLayout>
+
+    <!-- Author credit at bottom -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="32dp"
+        android:text="by SparkyNox"
+        android:textColor="#66FFFFFF"
+        android:textSize="12sp"
+        android:fontFamily="@font/nunito" />
+
+</FrameLayout>
