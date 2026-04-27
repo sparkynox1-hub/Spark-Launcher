@@ -127,7 +127,10 @@ dependencies {
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
     implementation 'androidx.browser:browser:1.7.0'
 
-    implementation 'com.microsoft.identity.client:msal:4.9.0'
+    implementation('com.microsoft.identity.client:msal:4.2.0') {
+        exclude group: 'io.opentelemetry'
+        exclude group: 'com.microsoft.device.display'
+    }
     implementation 'io.noties.markwon:core:4.6.2'
     implementation 'org.apache.commons:commons-compress:1.25.0'
 
