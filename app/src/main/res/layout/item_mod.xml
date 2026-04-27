@@ -35,7 +35,7 @@
             android:paddingVertical="2dp"
             android:textSize="9sp"
             android:textColor="@color/white"
-            android:fontFamily="@font/nunito_bold"
+            android:fontFamily="sans-serif-medium"
             tools:text="MODRINTH" />
 
         <View
@@ -49,7 +49,7 @@
             android:layout_height="wrap_content"
             android:textColor="@color/text_primary"
             android:textSize="13sp"
-            android:fontFamily="@font/nunito_bold"
+            android:fontFamily="sans-serif-medium"
             android:maxLines="1"
             android:ellipsize="end"
             tools:text="Sodium" />

@@ -17,7 +17,7 @@
         android:text="Mod Store"
         android:textColor="@color/text_primary"
         android:textSize="24sp"
-        android:fontFamily="@font/nunito_bold" />
+        android:fontFamily="sans-serif-medium" />
 
     <!-- Search bar -->
     <androidx.appcompat.widget.SearchView

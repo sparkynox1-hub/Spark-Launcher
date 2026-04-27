@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/text_primary"
                 android:textSize="15sp"
-                android:fontFamily="@font/nunito_bold"
+                android:fontFamily="sans-serif-medium"
                 android:text="Category" />
 
             <TextView

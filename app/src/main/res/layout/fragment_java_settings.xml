@@ -38,7 +38,7 @@
                         android:text="Allocated RAM"
                         android:textColor="@color/text_primary"
                         android:textSize="15sp"
-                        android:fontFamily="@font/nunito_bold" />
+                        android:fontFamily="sans-serif-medium" />
 
                     <TextView
                         android:id="@+id/tv_ram_value"
@@ -47,7 +47,7 @@
                         android:text="1.0 GB"
                         android:textColor="@color/accent_spark_orange"
                         android:textSize="15sp"
-                        android:fontFamily="@font/nunito_bold" />
+                        android:fontFamily="sans-serif-medium" />
                 </LinearLayout>
 
                 <com.google.android.material.slider.Slider
@@ -85,7 +85,7 @@
                     android:text="Java Version"
                     android:textColor="@color/text_primary"
                     android:textSize="15sp"
-                    android:fontFamily="@font/nunito_bold"
+                    android:fontFamily="sans-serif-medium"
                     android:layout_marginBottom="8dp" />
 
                 <Spinner
@@ -123,7 +123,7 @@
                     android:text="Garbage Collector"
                     android:textColor="@color/text_primary"
                     android:textSize="15sp"
-                    android:fontFamily="@font/nunito_bold"
+                    android:fontFamily="sans-serif-medium"
                     android:layout_marginBottom="8dp" />
 
                 <Spinner
@@ -161,7 +161,7 @@
                     android:text="JVM Arguments"
                     android:textColor="@color/text_primary"
                     android:textSize="15sp"
-                    android:fontFamily="@font/nunito_bold"
+                    android:fontFamily="sans-serif-medium"
                     android:layout_marginBottom="8dp" />
 
                 <com.google.android.material.textfield.TextInputLayout
