@@ -1,1 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
 
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.sparkynox.sparklauncher.ui.fragments.HomeFragment"
+        android:label="Home" />
+
+    <fragment
+        android:id="@+id/modStoreFragment"
+        android:name="com.sparkynox.sparklauncher.ui.fragments.ModStoreFragment"
+        android:label="Mod Store" />
+
+    <fragment
+        android:id="@+id/instancesFragment"
+        android:name="com.sparkynox.sparklauncher.ui.fragments.InstancesFragment"
+        android:label="Instances" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.sparkynox.sparklauncher.ui.fragments.ProfileFragment"
+        android:label="Profile" />
+
+</navigation>
