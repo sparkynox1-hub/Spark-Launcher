@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="false">
+        <!-- Modrinth -->
+        <domain includeSubdomains="true">modrinth.com</domain>
+        <!-- CurseForge -->
+        <domain includeSubdomains="true">curseforge.com</domain>
+        <domain includeSubdomains="true">forgecdn.net</domain>
+        <!-- Minecraft / Mojang -->
+        <domain includeSubdomains="true">mojang.com</domain>
+        <domain includeSubdomains="true">minecraft.net</domain>
+        <domain includeSubdomains="true">minecraftservices.com</domain>
+        <!-- Microsoft Auth -->
+        <domain includeSubdomains="true">microsoft.com</domain>
+        <domain includeSubdomains="true">microsoftonline.com</domain>
+        <domain includeSubdomains="true">live.com</domain>
+        <domain includeSubdomains="true">xbox.com</domain>
+    </domain-config>
+</network-security-config>
