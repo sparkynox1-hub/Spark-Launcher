@@ -1,1 +1,20 @@
-
+{
+  "client_id": "00000000402b5328",
+  "authorization_user_agent": "DEFAULT",
+  "redirect_uri": "msauth://com.sparkynox.sparklauncher/auth",
+  "authorities": [
+    {
+      "type": "AAD",
+      "audience": {
+        "type": "AzureADandPersonalMicrosoftAccount",
+        "tenant_id": "consumers"
+      }
+    }
+  ],
+  "broker_redirect_uri_registered": false,
+  "logging": {
+    "pii_enabled": false,
+    "log_level": "WARNING",
+    "logcat_enabled": true
+  }
+}
