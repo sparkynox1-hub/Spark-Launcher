@@ -3,7 +3,7 @@
 > A sleek, anime-themed Minecraft launcher for Android
 > **Author:** SparkyNox | **Part of the Yori Ecosystem**
 
-[![Build](https://github.com/sparkynox/spark-launcher/actions/workflows/build.yml/badge.svg)](https://github.com/sparkynox/spark-launcher/actions)
+[![Build](https://github.com/sparkynox/Spark-Launcher/actions/workflows/build.yml/badge.svg)](https://github.com/sparkynox/spark-launcher/actions)
 ![Platform](https://img.shields.io/badge/platform-Android%2026%2B-green)
 ![License](https://img.shields.io/badge/license-GPL--3.0-blue)
 
