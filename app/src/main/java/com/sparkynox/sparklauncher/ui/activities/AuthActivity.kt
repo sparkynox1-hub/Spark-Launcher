@@ -6,6 +6,8 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import com.sparkynox.sparklauncher.R
 import com.sparkynox.sparklauncher.databinding.ActivityAuthBinding
 import com.sparkynox.sparklauncher.ui.viewmodels.AuthViewModel
 import com.sparkynox.sparklauncher.utils.ThemeManager
@@ -26,30 +28,28 @@ class AuthActivity : AppCompatActivity() {
         binding = ActivityAuthBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.root.background = themeManager.getBackground()
+        binding.bgAuth.background = themeManager.getBackground()
 
         setupTabs()
         observeViewModel()
     }
 
     private fun setupTabs() {
-        // Tab: Cracked (offline)
+        // Default: cracked tab active
+        setTabActive(cracked = true)
+
         binding.tabCracked.setOnClickListener {
-            binding.tabCracked.isSelected = true
-            binding.tabMicrosoft.isSelected = false
+            setTabActive(cracked = true)
             binding.layoutCracked.visibility = View.VISIBLE
             binding.layoutMicrosoft.visibility = View.GONE
         }
 
-        // Tab: Microsoft (official)
         binding.tabMicrosoft.setOnClickListener {
-            binding.tabMicrosoft.isSelected = true
-            binding.tabCracked.isSelected = false
+            setTabActive(cracked = false)
             binding.layoutMicrosoft.visibility = View.VISIBLE
             binding.layoutCracked.visibility = View.GONE
         }
 
-        // Login cracked
         binding.btnLoginCracked.setOnClickListener {
             val username = binding.etUsername.text.toString().trim()
             if (username.length < 3) {
@@ -59,9 +59,25 @@ class AuthActivity : AppCompatActivity() {
             viewModel.loginCracked(username)
         }
 
-        // Login Microsoft
         binding.btnLoginMicrosoft.setOnClickListener {
             viewModel.loginMicrosoft(this)
+        }
+    }
+
+    private fun setTabActive(cracked: Boolean) {
+        val activeDrawable = ContextCompat.getDrawable(this, R.drawable.bg_tab_selected)
+        val inactiveBg = android.graphics.Color.TRANSPARENT
+
+        if (cracked) {
+            binding.tabCracked.background = activeDrawable
+            binding.tabCracked.setTextColor(ContextCompat.getColor(this, R.color.white))
+            binding.tabMicrosoft.setBackgroundColor(inactiveBg)
+            binding.tabMicrosoft.setTextColor(ContextCompat.getColor(this, R.color.text_secondary))
+        } else {
+            binding.tabMicrosoft.background = activeDrawable
+            binding.tabMicrosoft.setTextColor(ContextCompat.getColor(this, R.color.white))
+            binding.tabCracked.setBackgroundColor(inactiveBg)
+            binding.tabCracked.setTextColor(ContextCompat.getColor(this, R.color.text_secondary))
         }
     }
 
