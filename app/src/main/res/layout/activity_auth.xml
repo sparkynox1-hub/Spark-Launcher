@@ -40,7 +40,6 @@
             android:text="Spark Launcher"
             android:textColor="@color/white"
             android:textSize="26sp"
-            android:fontFamily="sans-serif-medium"
             android:layout_marginBottom="4dp" />
 
         <TextView
@@ -59,6 +58,7 @@
             android:orientation="horizontal"
             android:layout_marginBottom="20dp">
 
+            <!-- Cracked tab — starts highlighted -->
             <TextView
                 android:id="@+id/tab_cracked"
                 android:layout_width="0dp"
@@ -68,10 +68,9 @@
                 android:text="⚡ Offline"
                 android:textColor="@color/white"
                 android:textSize="14sp"
-                android:fontFamily="sans-serif-medium"
-                android:background="@drawable/bg_tab_selected"
-                android:selected="true" />
+                android:background="@drawable/bg_tab_selected" />
 
+            <!-- Microsoft tab — starts un-highlighted -->
             <TextView
                 android:id="@+id/tab_microsoft"
                 android:layout_width="0dp"
@@ -81,7 +80,7 @@
                 android:text="🟦 Microsoft"
                 android:textColor="@color/text_secondary"
                 android:textSize="14sp"
-                android:fontFamily="sans-serif-medium" />
+                android:background="@android:color/transparent" />
 
         </LinearLayout>
 
