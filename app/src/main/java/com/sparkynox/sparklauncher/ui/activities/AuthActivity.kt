@@ -10,7 +10,7 @@ import androidx.core.content.ContextCompat
 import com.sparkynox.sparklauncher.R
 import com.sparkynox.sparklauncher.databinding.ActivityAuthBinding
 import com.sparkynox.sparklauncher.ui.viewmodels.AuthViewModel
-import com.sparkynox.sparklauncher.utils.ThemeManager
+import com.sparkynox.sparklauncher.theme.ThemeManager
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
