@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.sparkynox.sparklauncher.databinding.ActivitySplashBinding
 import com.sparkynox.sparklauncher.utils.PreferencesManager
-import com.sparkynox.sparklauncher.utils.ThemeManager
+import com.sparkynox.sparklauncher.theme.ThemeManager
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
