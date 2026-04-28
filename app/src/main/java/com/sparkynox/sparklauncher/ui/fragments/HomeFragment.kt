@@ -14,7 +14,7 @@ import com.sparkynox.sparklauncher.ui.activities.GameActivity
 import com.sparkynox.sparklauncher.ui.activities.SettingsActivity
 import com.sparkynox.sparklauncher.ui.viewmodels.HomeViewModel
 import com.sparkynox.sparklauncher.utils.PreferencesManager
-import com.sparkynox.sparklauncher.utils.ThemeManager
+import com.sparkynox.sparklauncher.theme.ThemeManager
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -90,14 +90,7 @@ class HomeFragment : Fragment() {
         binding.tvThemeName.setTextColor(themeManager.getAccentColor())
     }
 
-    private fun getMascotRes(): Int = when (themeManager.currentTheme) {
-        ThemeManager.Theme.SAKURA -> R.raw.mascot_sakura
-        ThemeManager.Theme.CYBER_WAIFU -> R.raw.mascot_cyber
-        ThemeManager.Theme.MIKU_TEAL -> R.raw.mascot_miku
-        ThemeManager.Theme.DEMON_SLAYER -> R.raw.mascot_demon
-        ThemeManager.Theme.PASTEL_IDOL -> R.raw.mascot_idol
-        else -> R.raw.mascot_default
-    }
+    private fun getMascotRes(): Int = R.drawable.ic_launcher_foreground
 
     private fun setupInstancesList() {
         // RecyclerView for game instances
