@@ -4,11 +4,10 @@ import android.app.Application
 import android.content.Context
 import androidx.multidex.MultiDex
 import androidx.work.Configuration
-import androidx.work.WorkManager
+import com.sparkynox.sparklauncher.theme.ThemeManager
 import com.sparkynox.sparklauncher.utils.CrashHandler
-import com.sparkynox.sparklauncher.utils.ThemeManager
+import com.sparkynox.sparklauncher.utils.PreferencesManager
 import dagger.hilt.android.HiltAndroidApp
-import javax.inject.Inject
 
 /**
  * Spark Launcher Application class
@@ -16,9 +15,6 @@ import javax.inject.Inject
  */
 @HiltAndroidApp
 class SparkApplication : Application(), Configuration.Provider {
-
-    @Inject
-    lateinit var themeManager: ThemeManager
 
     companion object {
         lateinit var instance: SparkApplication
@@ -34,14 +30,9 @@ class SparkApplication : Application(), Configuration.Provider {
         // Install crash handler
         CrashHandler.install(this)
 
-        // Apply saved theme
-        themeManager.applyTheme()
-
-        // Init WorkManager with custom config
-        WorkManager.initialize(
-            this,
-            workManagerConfiguration
-        )
+        // Init theme — no Hilt field injection in Application, init manually
+        val prefs = PreferencesManager(this)
+        ThemeManager(this, prefs).applyTheme()
     }
 
     override fun attachBaseContext(base: Context) {
