@@ -5,18 +5,14 @@ import android.graphics.drawable.Drawable
 import androidx.core.content.ContextCompat
 import com.sparkynox.sparklauncher.R
 import com.sparkynox.sparklauncher.utils.PreferencesManager
-import dagger.hilt.android.qualifiers.ApplicationContext
-import javax.inject.Inject
-import javax.inject.Singleton
 
 /**
  * ThemeManager — manages Spark Launcher built-in themes.
  * All themes use real wallpaper images bundled in-app.
  * Author: SparkyNox
  */
-@Singleton
-class ThemeManager @Inject constructor(
-    @ApplicationContext private val context: Context,
+class ThemeManager(
+    private val context: Context,
     private val prefs: PreferencesManager
 ) {
 
