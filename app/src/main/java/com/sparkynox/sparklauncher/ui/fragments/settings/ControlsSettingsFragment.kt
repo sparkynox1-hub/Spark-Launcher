@@ -2,82 +2,36 @@ package com.sparkynox.sparklauncher.ui.fragments.settings
 
 import android.os.Bundle
 import android.view.*
-import android.widget.ArrayAdapter
+import android.widget.*
 import androidx.fragment.app.Fragment
-import com.sparkynox.sparklauncher.databinding.FragmentControlsSettingsBinding
+import com.google.android.material.slider.Slider
 import com.sparkynox.sparklauncher.utils.PreferencesManager
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
 class ControlsSettingsFragment : Fragment() {
-
-    private var _binding: FragmentControlsSettingsBinding? = null
-    private val binding get() = _binding!!
     @Inject lateinit var prefs: PreferencesManager
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentControlsSettingsBinding.inflate(inflater, container, false)
-        return binding.root
-    }
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        val ctx = requireContext()
+        val root = ScrollView(ctx)
+        val ll = LinearLayout(ctx).apply { orientation=LinearLayout.VERTICAL; setPadding(48,48,48,48) }
+        root.addView(ll)
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        // Controls profiles
-        val profiles = listOf("Default", "Compact", "Controller", "Custom")
-        binding.spinnerControlsProfile.adapter = ArrayAdapter(
-            requireContext(),
-            android.R.layout.simple_spinner_dropdown_item,
-            profiles
-        )
-        val idx = profiles.indexOfFirst {
-            it.lowercase() == prefs.controlsProfile
-        }.coerceAtLeast(0)
-        binding.spinnerControlsProfile.setSelection(idx)
-        binding.spinnerControlsProfile.onItemSelectedListener =
-            object : android.widget.AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(p: android.widget.AdapterView<*>?, v: View?, pos: Int, id: Long) {
-                    prefs.controlsProfile = profiles[pos].lowercase()
-                }
-                override fun onNothingSelected(p: android.widget.AdapterView<*>?) {}
-            }
-
-        // Mouse speed
-        binding.sliderMouseSpeed.apply {
-            valueFrom = 0.1f
-            valueTo = 5.0f
-            stepSize = 0.1f
-            value = prefs.mouseSpeed
-            addOnChangeListener { _, value, _ ->
-                prefs.mouseSpeed = value
-                binding.tvMouseSpeed.text = "%.1f×".format(value)
-            }
-        }
-        binding.tvMouseSpeed.text = "%.1f×".format(prefs.mouseSpeed)
-
-        // Virtual mouse
-        binding.switchVirtualMouse.isChecked = prefs.virtualMouseEnabled
-        binding.switchVirtualMouse.setOnCheckedChangeListener { _, checked ->
-            prefs.virtualMouseEnabled = checked
+        val tvMouseSpeed = TextView(ctx).apply { text="Mouse Speed: %.1fx".format(prefs.mouseSpeed); textSize=14f; setTextColor(0xFFF0F0F5.toInt()) }
+        val sliderMouse = Slider(ctx).apply {
+            valueFrom=0.1f; valueTo=5f; stepSize=0.1f; value=prefs.mouseSpeed
+            addOnChangeListener { _,v,_ -> prefs.mouseSpeed=v; tvMouseSpeed.text="Mouse Speed: %.1fx".format(v) }
         }
 
-        // Gyroscope
-        binding.switchGyro.isChecked = prefs.enableGyroscope
-        binding.switchGyro.setOnCheckedChangeListener { _, checked ->
-            prefs.enableGyroscope = checked
-        }
+        fun cb(label: String, checked: Boolean, onChange: (Boolean)->Unit) =
+            CheckBox(ctx).apply { text=label; isChecked=checked; setTextColor(0xFFF0F0F5.toInt()); setOnCheckedChangeListener { _,v -> onChange(v) }; setPadding(0,16,0,0) }
 
-        // Haptic feedback
-        binding.switchHaptic.isChecked = prefs.enableHapticFeedback
-        binding.switchHaptic.setOnCheckedChangeListener { _, checked ->
-            prefs.enableHapticFeedback = checked
-        }
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+        ll.addView(tvMouseSpeed); ll.addView(sliderMouse)
+        ll.addView(cb("Virtual Mouse",    prefs.virtualMouseEnabled)  { prefs.virtualMouseEnabled=it })
+        ll.addView(cb("Gyroscope",        prefs.enableGyroscope)      { prefs.enableGyroscope=it })
+        ll.addView(cb("Haptic Feedback",  prefs.enableHapticFeedback) { prefs.enableHapticFeedback=it })
+        return root
     }
 }
