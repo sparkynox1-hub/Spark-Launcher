@@ -1,16 +1,17 @@
-package com.sparkynox.sparklauncher.utils
+package com.sparkynox.sparklauncher.theme
 
 import android.content.Context
 import android.graphics.drawable.Drawable
 import androidx.core.content.ContextCompat
 import com.sparkynox.sparklauncher.R
+import com.sparkynox.sparklauncher.utils.PreferencesManager
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 import javax.inject.Singleton
 
 /**
- * ThemeManager — manages Spark Launcher's built-in themes.
- * All themes are bundled in-app (no external imports).
+ * ThemeManager — manages Spark Launcher built-in themes.
+ * All themes use real wallpaper images bundled in-app.
  * Author: SparkyNox
  */
 @Singleton
@@ -34,7 +35,7 @@ class ThemeManager @Inject constructor(
             backgroundRes = R.drawable.bg_sakura,
             accentColor = R.color.accent_sakura,
             isAnime = true,
-            description = "Cherry blossoms & soft pink glow"
+            description = "Angel girl pink starry sky"
         ),
         CYBER_WAIFU(
             id = "cyber_waifu",
@@ -42,7 +43,7 @@ class ThemeManager @Inject constructor(
             backgroundRes = R.drawable.bg_cyber_waifu,
             accentColor = R.color.accent_cyber,
             isAnime = true,
-            description = "Neon cyberpunk anime aesthetic"
+            description = "Blue rose girl night city"
         ),
         MIKU_TEAL(
             id = "miku_teal",
@@ -50,7 +51,7 @@ class ThemeManager @Inject constructor(
             backgroundRes = R.drawable.bg_miku,
             accentColor = R.color.accent_teal,
             isAnime = true,
-            description = "Teal & aqua vocaloid vibes"
+            description = "Green flowers closeup"
         ),
         DEMON_SLAYER(
             id = "demon_slayer",
@@ -58,7 +59,7 @@ class ThemeManager @Inject constructor(
             backgroundRes = R.drawable.bg_demon_slayer,
             accentColor = R.color.accent_crimson,
             isAnime = true,
-            description = "Dark crimson & black warrior theme"
+            description = "Lanterns & torii gates at dusk"
         ),
         PASTEL_IDOL(
             id = "pastel_idol",
@@ -66,7 +67,7 @@ class ThemeManager @Inject constructor(
             backgroundRes = R.drawable.bg_pastel_idol,
             accentColor = R.color.accent_pastel,
             isAnime = true,
-            description = "Soft pastel idol concert"
+            description = "Cat girl with teal halo"
         ),
         // === Standard Themes ===
         DARK_SPARK(
@@ -74,41 +75,40 @@ class ThemeManager @Inject constructor(
             displayName = "Dark Spark",
             backgroundRes = R.drawable.bg_dark_spark,
             accentColor = R.color.accent_spark_orange,
-            description = "Default dark theme with spark accents"
+            description = "Dreamy clouds anime field"
         ),
         MINECRAFT_DIRT(
             id = "minecraft_dirt",
             displayName = "Minecraft Classic",
             backgroundRes = R.drawable.bg_minecraft,
             accentColor = R.color.accent_grass_green,
-            description = "Classic Minecraft dirt & grass"
+            description = "Warm anime sunset street"
         ),
         NETHER(
             id = "nether",
             displayName = "Nether Realm",
             backgroundRes = R.drawable.bg_nether,
             accentColor = R.color.accent_lava,
-            description = "Hot lava and netherrack vibes"
+            description = "Fire lanterns red field"
         ),
         END_VOID(
             id = "end_void",
             displayName = "The End",
             backgroundRes = R.drawable.bg_end,
             accentColor = R.color.accent_ender,
-            description = "Purple void of The End dimension"
+            description = "Purple cherry blossom night"
         ),
         OCEAN(
             id = "ocean",
             displayName = "Deep Ocean",
             backgroundRes = R.drawable.bg_ocean,
             accentColor = R.color.accent_ocean_blue,
-            description = "Depths of the Minecraft ocean"
+            description = "Galaxy shooting stars lake"
         );
 
         companion object {
             fun fromId(id: String): Theme =
                 values().firstOrNull { it.id == id } ?: CYBER_WAIFU
-
             fun animeThemes(): List<Theme> = values().filter { it.isAnime }
             fun standardThemes(): List<Theme> = values().filter { !it.isAnime }
         }
