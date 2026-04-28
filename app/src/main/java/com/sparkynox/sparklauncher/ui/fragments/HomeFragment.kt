@@ -1,20 +1,15 @@
 package com.sparkynox.sparklauncher.ui.fragments
 
-import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.bumptech.glide.Glide
-import com.sparkynox.sparklauncher.R
 import com.sparkynox.sparklauncher.databinding.FragmentHomeBinding
-import com.sparkynox.sparklauncher.ui.activities.GameActivity
-import com.sparkynox.sparklauncher.ui.activities.SettingsActivity
+import com.sparkynox.sparklauncher.theme.ThemeManager
+import com.sparkynox.sparklauncher.ui.adapters.InstanceAdapter
 import com.sparkynox.sparklauncher.ui.viewmodels.HomeViewModel
 import com.sparkynox.sparklauncher.utils.PreferencesManager
-import com.sparkynox.sparklauncher.theme.ThemeManager
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -28,90 +23,40 @@ class HomeFragment : Fragment() {
     @Inject lateinit var prefs: PreferencesManager
     @Inject lateinit var themeManager: ThemeManager
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        setupUI()
-        setupInstancesList()
-        observeViewModel()
-    }
-
-    private fun setupUI() {
-        // Greeting with username
-        val username = if (prefs.accountType == "cracked")
-            prefs.crackedUsername else "Player"
-
+        val username = if (prefs.accountType == "cracked") prefs.crackedUsername else "Player"
         binding.tvGreeting.text = "Welcome, $username ✨"
         binding.tvSubtitle.text = "Ready to play?"
+        binding.tvThemeName.text = "🎨 ${themeManager.currentTheme.displayName}"
+        binding.tvThemeName.setTextColor(themeManager.getAccentColor())
 
-        // Anime mascot based on theme
-        if (prefs.animeEffectsEnabled && themeManager.currentTheme.isAnime) {
-            binding.animeMascot.visibility = View.VISIBLE
-            // Load theme-specific mascot
-            Glide.with(this)
-                .asGif()
-                .load(getMascotRes())
-                .into(binding.animeMascot)
-        }
-
-        // Play button
         binding.btnPlay.setOnClickListener {
-            val instance = viewModel.selectedInstance.value
-            if (instance != null) {
-                startActivity(Intent(requireContext(), GameActivity::class.java).apply {
-                    putExtra("instance_id", instance.id)
-                })
+            if (viewModel.selectedInstance.value != null) {
+                Toast.makeText(requireContext(), "Launching game…", Toast.LENGTH_SHORT).show()
+                // TODO: launch GameActivity when JVM bridge is integrated
             } else {
-                binding.btnPlay.apply {
-                    animate().translationX(-10f).setDuration(50).withEndAction {
-                        animate().translationX(10f).setDuration(50).withEndAction {
-                            animate().translationX(0f).setDuration(50).start()
-                        }.start()
+                binding.btnPlay.animate().translationX(-8f).setDuration(50).withEndAction {
+                    binding.btnPlay.animate().translationX(8f).setDuration(50).withEndAction {
+                        binding.btnPlay.animate().translationX(0f).start()
                     }.start()
-                }
+                }.start()
             }
         }
 
-        // Settings shortcut
-        binding.btnSettings.setOnClickListener {
-            startActivity(Intent(requireContext(), SettingsActivity::class.java))
-        }
-
-        // Theme badge
-        binding.tvThemeName.text = "🎨 ${themeManager.currentTheme.displayName}"
-        binding.tvThemeName.setTextColor(themeManager.getAccentColor())
-    }
-
-    private fun getMascotRes(): Int = R.drawable.ic_launcher_foreground
-
-    private fun setupInstancesList() {
-        // RecyclerView for game instances
-        binding.rvInstances.adapter = com.sparkynox.sparklauncher.ui.adapters.InstanceAdapter(
-            onSelect = { instance -> viewModel.selectInstance(instance) },
-            onEdit = { instance -> showInstanceEditor(instance) },
-            onDelete = { instance -> viewModel.deleteInstance(instance) }
+        binding.rvInstances.adapter = InstanceAdapter(
+            onSelect = { viewModel.selectInstance(it) },
+            onEdit   = { },
+            onDelete = { viewModel.deleteInstance(it) }
         )
-    }
 
-    private fun showInstanceEditor(instance: com.sparkynox.sparklauncher.data.models.GameInstance) {
-        // Show bottom sheet for editing instance
-    }
-
-    private fun observeViewModel() {
         viewModel.instances.observe(viewLifecycleOwner) { instances ->
-            (binding.rvInstances.adapter as com.sparkynox.sparklauncher.ui.adapters.InstanceAdapter)
-                .submitList(instances)
-
-            binding.tvNoInstances.visibility =
-                if (instances.isEmpty()) View.VISIBLE else View.GONE
+            (binding.rvInstances.adapter as InstanceAdapter).submitList(instances)
+            binding.tvNoInstances.visibility = if (instances.isEmpty()) View.VISIBLE else View.GONE
         }
 
         viewModel.selectedInstance.observe(viewLifecycleOwner) { instance ->
@@ -120,8 +65,5 @@ class HomeFragment : Fragment() {
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
+    override fun onDestroyView() { super.onDestroyView(); _binding = null }
 }

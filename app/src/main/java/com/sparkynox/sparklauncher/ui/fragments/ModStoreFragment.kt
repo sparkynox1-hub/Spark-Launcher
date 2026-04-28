@@ -80,9 +80,9 @@ class ModStoreFragment : Fragment() {
                 // Show instance selector dialog before downloading
                 showInstanceSelector(mod)
             },
-            onInfo = { mod ->
-                ModDetailBottomSheet.newInstance(mod)
-                    .show(parentFragmentManager, "mod_detail")
+            onInfo = { mod -> android.widget.Toast.makeText(requireContext(), mod.name, android.widget.Toast.LENGTH_SHORT).show(); Unit //
+                
+                    
             }
         )
         binding.rvMods.apply {
