@@ -7,6 +7,7 @@ import androidx.work.Configuration
 import com.sparkynox.sparklauncher.theme.ThemeManager
 import com.sparkynox.sparklauncher.utils.CrashHandler
 import com.sparkynox.sparklauncher.utils.PreferencesManager
+import com.sparkynox.sparklauncher.utils.CrashHandler
 import dagger.hilt.android.HiltAndroidApp
 
 /**
