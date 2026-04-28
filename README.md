@@ -1,4 +1,4 @@
-# 🔥 Spark Launcher
+# 🔥 Spark Launcher ★
 
 > A sleek, anime-themed Minecraft launcher for Android
 > **Author:** SparkyNox | **Part of the Yori Ecosystem**
