@@ -7,7 +7,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.sparkynox.sparklauncher.R
 import com.sparkynox.sparklauncher.databinding.ActivityMainBinding
-import com.sparkynox.sparklauncher.utils.ThemeManager
+import com.sparkynox.sparklauncher.theme.ThemeManager
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
