@@ -1,11 +1,9 @@
 package com.sparkynox.sparklauncher.ui.activities
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
+import android.widget.FrameLayout
 import androidx.fragment.app.Fragment
-import com.sparkynox.sparklauncher.databinding.FragmentSettingsCategoryBinding
 import com.sparkynox.sparklauncher.theme.ThemeManager
 import com.sparkynox.sparklauncher.ui.fragments.settings.*
 import dagger.hilt.android.AndroidEntryPoint
@@ -13,9 +11,6 @@ import javax.inject.Inject
 
 @AndroidEntryPoint
 class SettingsCategoryFragment : Fragment() {
-
-    private var _binding: FragmentSettingsCategoryBinding? = null
-    private val binding get() = _binding!!
 
     @Inject lateinit var themeManager: ThemeManager
 
@@ -25,34 +20,27 @@ class SettingsCategoryFragment : Fragment() {
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentSettingsCategoryBinding.inflate(inflater, container, false)
-        return binding.root
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        return FrameLayout(requireContext()).apply {
+            id = com.sparkynox.sparklauncher.R.id.settings_fragment_container
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val category = arguments?.getString("category") ?: return
         val fragment: Fragment = when (category) {
-            "Java & JVM" -> JavaSettingsFragment()
-            "Renderer" -> RendererSettingsFragment()
-            "Controls" -> ControlsSettingsFragment()
-            "Theme" -> ThemeSettingsFragment()
-            "Account" -> AccountSettingsFragment()
+            "Java & JVM"  -> JavaSettingsFragment()
+            "Renderer"    -> RendererSettingsFragment()
+            "Controls"    -> ControlsSettingsFragment()
+            "Theme"       -> ThemeSettingsFragment()
+            "Account"     -> AccountSettingsFragment()
             "Performance" -> PerformanceSettingsFragment()
-            "Download" -> DownloadSettingsFragment()
-            "About" -> AboutFragment()
-            else -> return
+            "Download"    -> DownloadSettingsFragment()
+            "About"       -> AboutFragment()
+            else          -> return
         }
         childFragmentManager.beginTransaction()
-            .replace(binding.settingsFragmentContainer.id, fragment)
+            .replace(com.sparkynox.sparklauncher.R.id.settings_fragment_container, fragment)
             .commit()
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }

@@ -1,10 +1,9 @@
 package com.sparkynox.sparklauncher.ui.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.fragment.NavHostFragment
-import com.sparkynox.sparklauncher.R
 import com.sparkynox.sparklauncher.databinding.ActivitySettingsBinding
 import com.sparkynox.sparklauncher.theme.ThemeManager
 import dagger.hilt.android.AndroidEntryPoint
@@ -20,59 +19,24 @@ class SettingsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySettingsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         binding.root.background = themeManager.getBackground()
         setSupportActionBar(binding.toolbar)
-        supportActionBar?.apply {
-            setDisplayHomeAsUpEnabled(true)
-            title = "Settings"
-        }
-        binding.toolbar.setTitleTextColor(themeManager.getAccentColor())
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = "Settings"
 
-        // Set up settings navigation
-        setupSettingsCategories()
-    }
-
-    private fun setupSettingsCategories() {
-        binding.apply {
-            // Java / JVM Settings
-            categoryJava.setOnClickListener {
-                openCategory("Java & JVM")
-            }
-            // Renderer Settings
-            categoryRenderer.setOnClickListener {
-                openCategory("Renderer")
-            }
-            // Controls
-            categoryControls.setOnClickListener {
-                openCategory("Controls")
-            }
-            // Theme
-            categoryTheme.setOnClickListener {
-                openCategory("Theme")
-            }
-            // Account
-            categoryAccount.setOnClickListener {
-                openCategory("Account")
-            }
-            // Performance
-            categoryPerformance.setOnClickListener {
-                openCategory("Performance")
-            }
-            // Download
-            categoryDownload.setOnClickListener {
-                openCategory("Download")
-            }
-            // About
-            categoryAbout.setOnClickListener {
-                openCategory("About")
-            }
-        }
+        binding.categoryJava.setOnClickListener { openCategory("Java & JVM") }
+        binding.categoryRenderer.setOnClickListener { openCategory("Renderer") }
+        binding.categoryControls.setOnClickListener { openCategory("Controls") }
+        binding.categoryTheme.setOnClickListener { openCategory("Theme") }
+        binding.categoryAccount.setOnClickListener { openCategory("Account") }
+        binding.categoryPerformance.setOnClickListener { openCategory("Performance") }
+        binding.categoryDownload.setOnClickListener { openCategory("Download") }
+        binding.categoryAbout.setOnClickListener { openCategory("About") }
     }
 
     private fun openCategory(category: String) {
         supportFragmentManager.beginTransaction()
-            .replace(R.id.settings_container,
+            .replace(com.sparkynox.sparklauncher.R.id.settings_container,
                 SettingsCategoryFragment.newInstance(category))
             .addToBackStack(category)
             .commit()
